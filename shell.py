@@ -1,6 +1,7 @@
 import os
 running = True 
 osMode = False 
+admin = False 
 
 class executor:
      
@@ -63,7 +64,7 @@ class executor:
      @staticmethod
      def handle_input(inp):
           return executor.normalize_input(input(inp))
-     
+
      """
      Output all of the commands from the commands dictionary
      """
@@ -105,6 +106,7 @@ class executor:
                osMode = False
           else:
                osMode = True
+               
      def remove():
           item = executor.handle_input("Enter the item location > ")
           if os.path.exists(item):
@@ -134,10 +136,16 @@ class executor:
                os.system(f"python3 {file}")
           else:
                os.system("python3")
-   
+     
      def set_admin():
-          os.system("sudo -s")
-          print("Admin mode entered/exited")
+          if admin == False:
+               os.system("sudo -s")
+               print("Admin mode entered")
+               admin = True 
+          else:
+               os.system("exit")
+               print("Admin mode exited!")
+               admin = False
 
 commands = {  
      "exit": executor.handle_exit,
