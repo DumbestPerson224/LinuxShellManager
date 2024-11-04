@@ -106,7 +106,7 @@ class executor:
                osMode = False
           else:
                osMode = True
-               
+
      def remove():
           item = executor.handle_input("Enter the item location > ")
           if os.path.exists(item):
@@ -138,6 +138,7 @@ class executor:
                os.system("python3")
      
      def set_admin():
+          global admin
           if admin == False:
                os.system("sudo -s")
                print("Admin mode entered")
