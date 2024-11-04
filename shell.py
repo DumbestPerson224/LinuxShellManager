@@ -3,53 +3,87 @@ running = True
 osMode = False 
 
 class executor:
-
+     
+     """
+     Strip out any spacing and make the input lowercase
+     """
      @staticmethod 
      def normalize_input(text):
           return executor.to_lower(executor.strip(text, " "))
 
+     """
+     Strip out the text
+     """
      @staticmethod
      def strip(text, value):
           return str(text).strip(value)
      
+     """
+     Convert something to a string
+     """
      @staticmethod
      def to_string(text):
           return str(text)
 
+     """
+     Convert num into a float
+     """
      @staticmethod
      def to_float(num):
           return float(num)
      
+     """
+     Convert the parameter to an integer
+     """
      @staticmethod
      def to_int(num):
           return int(num)
 
+     """
+     Convert the parameter to a lowercase
+     """
      @staticmethod 
      def to_lower(inp):
           return inp.lower()
      
+     """ 
+     Handle exiting
+     """
      @staticmethod
      def handle_exit():
           global running
           leave = input("Exit? ")
           if executor.to_lower(leave) == "y": 
+               print("Exiting...")
                running = False
 
+     """
+     Handle input by normalizing it and getting it
+     """
      @staticmethod
      def handle_input(inp):
           return executor.normalize_input(input(inp))
      
+     """
+     Output all of the commands from the commands dictionary
+     """
      @staticmethod
      def output_commands():
           for i in commands:
                print(i)
-     
+     """
+     List folders in the current directory
+     """
      def list_dir():
           for i in os.listdir():
                if os.path.isdir(i):
                     print(i)
                else:
                     continue
+
+     """
+     Make the parameter a capital 
+     """
      @staticmethod
      def capitalize(value):
           return value.capitalize()
@@ -103,6 +137,7 @@ class executor:
    
      def set_admin():
           os.system("sudo -s")
+          print("Admin mode entered/exited")
 
 commands = {  
      "exit": executor.handle_exit,
@@ -127,7 +162,7 @@ does = {
      "exists": "This command checks if a file or directory exists",
      "listuse": "This command lists the usages of the inputted command",
 }
-while running is True: 
+while running: 
      try:
           command = executor.handle_input("> ")
           if commands.get(command):
