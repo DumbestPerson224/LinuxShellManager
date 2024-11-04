@@ -162,14 +162,16 @@ does = {
      "exists": "This command checks if a file or directory exists",
      "listuse": "This command lists the usages of the inputted command",
 }
-while running: 
+
+if __name__ == '__main__':
+  while running: 
      try:
           command = executor.handle_input("> ")
           if commands.get(command):
               commands[command]()
           else:
                if osMode == True:
-                  os.system(command)
+                    os.system(command)
                else:
                     print(f"{executor.capitalize(command)} is not a valid command")
                     print("Type `help` to see the available commands")
