@@ -43,8 +43,8 @@ class CommandInterpreter:
     Parameter: commands 
     HandlesError: TypeError 
     Type: string
-    ErrorHandleOutput: The {command} must have a parameter
-    InvalidCommandOutput: The {command upper case} is not a valid command!
+    InvalidCommandOutput: The command in all capitals is not a valid command 
+    NoParameterProvided: The command (command in lower case) must have a parameter.
     """
     def validate_command(self, command):
         try:
