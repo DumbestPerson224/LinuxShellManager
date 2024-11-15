@@ -44,7 +44,7 @@ class CommandInterpreter:
     HandlesError: TypeError 
     Type: string
     InvalidCommandOutput: The command in all capitals is not a valid command 
-    NoParameterProvided: The command (command in lower case) must have a parameter.
+    NoParameterProvided: The command (command in original casing) must have a parameter.
     """
     def validate_command(self, command):
         try:
