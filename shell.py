@@ -1,10 +1,16 @@
 import os
 class CommandInterpreter:
     def __init__(self):
+
+    """Map commands to the corresponding method"""
         self.commands = {"echo": self.handle_echo, "exit": self.handle_exit, "list": self.listcontent, "help": self.list_commands}
+
+    "`isRunning` and `osMode` must only be booleans"
         self.isRunning = True
         self.osMode = False 
+        
     """
+    Does: This function handles output
     Parameter: inp 
     Outputs: inp
     Type: any 
