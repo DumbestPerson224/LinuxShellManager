@@ -4,24 +4,23 @@ class CommandInterpreter:
         self.commands = {"echo": self.handle_echo, "exit": self.handle_exit, "list": self.listcontent, "help": self.list_commands}
         self.isRunning = True
         self.osMode = False 
-    
     """
-    @param inp 
-    @outputs inp
+    @Param inp 
+    @Outputs inp
     @Type any 
     """
     def handle_echo(self, inp):
         print(inp)
     
     """
-    @outputs commands 
+    @Outputs commands 
     """
     def list_commands(self):
         for command in self.commands:
             print(command)
             
     """
-    @outputs every file and folder in the current directory
+    @Outputs every file and folder in the current directory
     """
     def listcontent(self):
         print(os.listdir())
@@ -31,8 +30,8 @@ class CommandInterpreter:
         self.isRunning = False
         
     """
-    @param inp 
-    @returns inp as a string input stripped from any white space 
+    @Param inp 
+    @Returns inp as a string input stripped from any white space 
     @Type string
     """
     def handle_input(self, inp):
@@ -41,19 +40,21 @@ class CommandInterpreter:
     """
     This boring function here takes in a paremeter called command and checks 
     if it is a valid command
-    @param commands 
+    @Param commands 
     @HandlesError TypeError 
     @Type string
+    @ErrorHandleOutput The {command} must have a parameter
     """
     def validate_command(self, command):
         try:
-            if self.commands.get(command):
-                self.commands[command]()
-            elif command.startswith("echo"):
-                output = command[4::].strip()
-                self.handle_echo(output)
+            self.commands[command]()
+        except KeyError:
+            if not command.startswith("echo"):
+                print(f"{command.upper()} is not a valid command!")
+            else:
+                self.handle_echo(command[4::].strip())
         except TypeError:
-            print("The echo command must have a parameter, dumbo!")
+            print(f"The {command} command must have a parameter.")
             
 commandInterpreter = CommandInterpreter()
 while commandInterpreter.isRunning:
