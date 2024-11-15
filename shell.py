@@ -8,12 +8,14 @@ class CommandInterpreter:
     Parameter: inp 
     Outputs: inp
     Type: any 
+    FunctionName: handle_echo
     """
     def handle_echo(self, inp):
         print(inp)
     
     """
     Outputs: commands 
+    FunctionName: list_commands
     """
     def list_commands(self):
         for command in self.commands:
@@ -21,10 +23,16 @@ class CommandInterpreter:
             
     """
     Outputs: every file and folder in the current directory
+    FunctionName: listcontent
     """
     def listcontent(self):
         print(os.listdir())
-    
+
+    """
+    Outputs: Exitting.
+    isRunning: False
+    FunctionName: handle_exit
+    """
     def handle_exit(self):
         print("Exiting..")
         self.isRunning = False
@@ -33,6 +41,7 @@ class CommandInterpreter:
     Parameter: inp 
     Returns: inp as a string input stripped from any white space 
     Type: string
+    FunctionName: handle_input
     """
     def handle_input(self, inp):
         return input(str(inp.strip(" ")))
@@ -45,6 +54,7 @@ class CommandInterpreter:
     Type: string
     InvalidCommandOutput: The command in all capitals is not a valid command 
     NoParameterProvided: The command (command in original casing) must have a parameter.
+    FunctionName: validate_input
     """
     def validate_command(self, command):
         try:
