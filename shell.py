@@ -5,22 +5,22 @@ class CommandInterpreter:
         self.isRunning = True
         self.osMode = False 
     """
-    @Param inp 
-    @Outputs inp
-    @Type any 
+    Parameter: inp 
+    Outputs: inp
+    Type: any 
     """
     def handle_echo(self, inp):
         print(inp)
     
     """
-    @Outputs commands 
+    Outputs: commands 
     """
     def list_commands(self):
         for command in self.commands:
             print(command)
             
     """
-    @Outputs every file and folder in the current directory
+    Outputs: every file and folder in the current directory
     """
     def listcontent(self):
         print(os.listdir())
@@ -30,9 +30,9 @@ class CommandInterpreter:
         self.isRunning = False
         
     """
-    @Param inp 
-    @Returns inp as a string input stripped from any white space 
-    @Type string
+    Parameter: inp 
+    Returns: inp as a string input stripped from any white space 
+    Type: string
     """
     def handle_input(self, inp):
         return input(str(inp.strip(" ")))
@@ -40,10 +40,10 @@ class CommandInterpreter:
     """
     This boring function here takes in a paremeter called command and checks 
     if it is a valid command
-    @Param commands 
-    @HandlesError TypeError 
-    @Type string
-    @ErrorHandleOutput The {command} must have a parameter
+    Parameter: commands 
+    HandlesError: TypeError 
+    Type: string
+    ErrorHandleOutput: The {command} must have a parameter
     """
     def validate_command(self, command):
         try:
