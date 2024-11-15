@@ -44,6 +44,7 @@ class CommandInterpreter:
     HandlesError: TypeError 
     Type: string
     ErrorHandleOutput: The {command} must have a parameter
+    InvalidCommandOutput: The {command upper case} is not a valid command!
     """
     def validate_command(self, command):
         try:
