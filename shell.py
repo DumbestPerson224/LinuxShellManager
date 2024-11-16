@@ -41,7 +41,7 @@ class CommandInterpreter:
     FunctionInformation
      Outputs (no type): every file and folder in the current directory
      name listcontent
-    """
+    """   
     def listcontent(self):
         print(os.listdir())
 
@@ -56,7 +56,6 @@ class CommandInterpreter:
         self.isRunning = False
         
     """
-  
     FunctionInformation
           name (handle_input): Do not change  
           Parameter: inp 
@@ -68,8 +67,6 @@ class CommandInterpreter:
         return input(str(inp.strip(" ")))
         
     """
-
-
     FunctionInformation:
           name (validate_input): Do not change name 
           type (str): Do not change type         
