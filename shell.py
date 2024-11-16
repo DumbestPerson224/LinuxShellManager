@@ -8,6 +8,7 @@ AuthorInformation
 
 class CommandInterpreter:
     def __init__(self):
+        
         """Map commands to the corresponding method"""
         self.commands = {"echo": self.handle_echo, "exit": self.handle_exit, "list": self.listcontent, "help": self.list_commands}
 
@@ -39,17 +40,17 @@ class CommandInterpreter:
             
     """
     FunctionInformation
-     Outputs (no type): every file and folder in the current directory
-     name listcontent
-    """   
+          Outputs (no type): every file and folder in the current directory
+          name listcontent
+    """
     def listcontent(self):
         print(os.listdir())
 
     """
     FunctionInformation
-     name (handle_exit): Do not change
-     Outputs Exitting.
-     isRunning (Do not change): False
+          name (handle_exit): Do not change
+          Outputs Exitting.
+          isRunning (Do not change): False
     """
     def handle_exit(self):
         print("Exiting..")
@@ -61,7 +62,6 @@ class CommandInterpreter:
           Parameter: inp 
           Returns: inp as a string input stripped from any white space 
           Type: string
-
     """
     def handle_input(self, inp):
         return input(str(inp.strip(" ")))
@@ -76,13 +76,17 @@ class CommandInterpreter:
           TypeError (No parameter provided): The command (command in original casing) must have a parameter
     """
     def validate_command(self, command):
+     
         try:
             self.commands[command]()
+     
         except KeyError:
+     
             if not command.startswith("echo"):
                 print(f"{command.upper()} is not a valid command!")
             else:
                 self.handle_echo(command[4::].strip())
+
         except TypeError:
             print(f"The {command} command must have a parameter.")
             
