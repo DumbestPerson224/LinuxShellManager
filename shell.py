@@ -56,10 +56,10 @@ class CommandInterpreter:
     This boring function here takes in a paremeter called command and checks 
     if it is a valid command
     Parameter: commands 
-    HandlesError: TypeError 
+    HandlesErrors: TypeError and KeyError
     Type: string
-    InvalidCommandOutput: The command in all capitals is not a valid command 
-    NoParameterProvided: The command (command in original casing) must have a parameter.
+    KeyError (Not a valid command): The command in all capitals is not a valid command 
+    TypeError (NoParameterProvided): The command (command in original casing) must have a parameter
     FunctionName: validate_input
     """
     def validate_command(self, command):
