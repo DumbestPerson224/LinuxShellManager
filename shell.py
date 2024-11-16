@@ -29,7 +29,7 @@ class CommandInterpreter:
         """
         print(inp)
 
-    def list_commands(self, command):
+    def list_commands(self):
         """
         Function Information
           Outputs (string): commands
