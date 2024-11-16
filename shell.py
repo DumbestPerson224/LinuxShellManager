@@ -60,7 +60,7 @@ class CommandInterpreter:
     Type: string
     KeyError (Not a valid command): The command in all capitals is not a valid command 
     TypeError (NoParameterProvided): The command (command in original casing) must have a parameter
-    FunctionName: validate_input
+    FunctionName: validate_command
     """
     def validate_command(self, command):
         try:
