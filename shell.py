@@ -44,7 +44,8 @@ class CommandInterpreter:
           name listcontent
     """
     def listcontent(self):
-        print(os.listdir())
+        for filesAndFolders in os.listdir():
+            print(filesAndFolders)
 
     """
     FunctionInformation
